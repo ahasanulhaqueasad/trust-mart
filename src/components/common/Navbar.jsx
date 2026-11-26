@@ -35,6 +35,7 @@ const Navbar = () => {
               <NavLink
                 key={link.path}
                 to={link.path}
+                end={link.path === "/"}
                 className={({ isActive }) =>
                   `text-[15px] font-medium transition-colors duration-300 ${
                     isActive
@@ -87,11 +88,12 @@ const Navbar = () => {
                   <NavLink
                     key={link.path}
                     to={link.path}
+                    end={link.path === "/"}
                     onClick={closeMenu}
                     className={({ isActive }) =>
                       `px-4 py-3 rounded-lg font-medium transition-colors ${
                         isActive
-                          ? "bg-primary/10 text-primary"
+                          ? "bg-primary/10 text-orange-500 font-bold"
                           : "text-gray-700 hover:bg-base-200"
                       }`
                     }
@@ -100,6 +102,7 @@ const Navbar = () => {
                   </NavLink>
                 ))}
 
+                {/* Mobile WhatsApp Button */}
                 <a
                   href="https://wa.me/8801838041204"
                   target="_blank"
