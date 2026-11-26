@@ -33,7 +33,7 @@ const Footer = () => {
               <img
                 src="/images/logo.png"
                 alt="Trust Mart Logo"
-                className="w-64 h-12 object-contain object-left"
+                className="w-64 sm:w-72 h-12 object-contain object-left"
               />
             </Link>
 

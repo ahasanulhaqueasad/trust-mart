@@ -25,7 +25,7 @@ const Navbar = () => {
             <img
               src="/images/logo.png"
               alt="Trust Mart Logo"
-              className="w-64 h-12 object-contain"
+              className="w-64 sm:w-72 h-12 object-contain"
             />
           </Link>
 
