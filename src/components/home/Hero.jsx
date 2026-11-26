@@ -66,7 +66,7 @@ const Hero = () => {
             </div>
 
             <p className="mt-7 text-sm font-medium text-[#1d5638]">
-              ট্রাস্ট মার্ট — বিশুদ্ধতার বিশ্বস্ত ঠিকানা
+              Trust Mart — বিশুদ্ধতার বিশ্বস্ত ঠিকানা
             </p>
           </motion.div>
 
