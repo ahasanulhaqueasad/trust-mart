@@ -34,7 +34,7 @@ const About = () => {
 
             <div className="absolute -bottom-6 -right-3 md:-right-6 bg-[#173f2b] text-white p-5 md:p-7 rounded-2xl shadow-xl">
               <h3 className="text-xl md:text-2xl font-bold text-[#efc66f]">
-                ট্রাস্ট মার্ট
+                Trust Mart
               </h3>
               <p className="text-sm text-gray-200 mt-1">
                 বিশুদ্ধতার বিশ্বস্ত ঠিকানা
@@ -51,8 +51,8 @@ const About = () => {
           >
             <SectionTitle
               subtitle="আমাদের সম্পর্কে"
-              title="কেন ট্রাস্ট মার্ট?"
-              description="ট্রাস্ট মার্ট একটি গ্রাহককেন্দ্রিক অনলাইন কেনাকাটার উদ্যোগ। আমাদের লক্ষ্য হলো প্রয়োজনীয় পণ্য কেনাকাটাকে সহজ, স্বাচ্ছন্দ্যময় ও তথ্যনির্ভর করে তোলা।"
+              title="কেন Trust Mart?"
+              description="Trust Mart একটি গ্রাহককেন্দ্রিক অনলাইন কেনাকাটার উদ্যোগ। আমাদের লক্ষ্য হলো প্রয়োজনীয় পণ্য কেনাকাটাকে সহজ, স্বাচ্ছন্দ্যময় ও তথ্যনির্ভর করে তোলা।"
               center={false}
             />
 

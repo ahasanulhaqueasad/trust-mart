@@ -1,10 +1,37 @@
-import { motion } from "motion/react";
+import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { ShoppingBag } from "lucide-react";
+
 import SectionTitle from "../components/ui/SectionTitle";
 import ProductCard from "../components/ui/ProductCard";
 import products from "../data/products.js";
 
 const Products = () => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  // Automatically create categories from product data
+  const categories = useMemo(() => {
+    const uniqueCategories = [
+      ...new Map(
+        products.map((product) => [
+          product.categorySlug,
+          {
+            name: product.category,
+            slug: product.categorySlug,
+          },
+        ]),
+      ).values(),
+    ];
+
+    return [{ name: "সব পণ্য", slug: "all" }, ...uniqueCategories];
+  }, []);
+
+  // Filter products by selected category
+  const filteredProducts =
+    selectedCategory === "all"
+      ? products
+      : products.filter((product) => product.categorySlug === selectedCategory);
+
   return (
     <main>
       {/* Page Banner */}
@@ -40,23 +67,56 @@ const Products = () => {
             description="আমাদের তালিকায় থাকা পণ্যগুলো দেখুন এবং পছন্দের পণ্য সম্পর্কে বিস্তারিত জানতে যোগাযোগ করুন।"
           />
 
-          {products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-              {products.map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
+          {/* Category Filter */}
+          {products.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {categories.map((category) => (
+                <button
+                  key={category.slug}
+                  onClick={() => setSelectedCategory(category.slug)}
+                  className={`px-6 py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
+                    selectedCategory === category.slug
+                      ? "bg-[#173f2b] text-white shadow-lg"
+                      : "bg-white text-gray-600 hover:bg-[#efc66f] hover:text-[#173f2b]"
+                  }`}
                 >
-                  <ProductCard product={product} />
-                </motion.div>
+                  {category.name}
+                  <span className="ml-2 opacity-75">
+                    {category.slug === "all"
+                      ? products.length
+                      : products.filter(
+                          (product) => product.categorySlug === category.slug,
+                        ).length}
+                  </span>
+                </button>
               ))}
             </div>
+          )}
+
+          {/* Products Grid */}
+          {filteredProducts.length > 0 ? (
+            <motion.div
+              layout
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"
+            >
+              <AnimatePresence mode="popLayout">
+                {filteredProducts.map((product, index) => (
+                  <motion.div
+                    key={product.id}
+                    layout
+                    initial={{ opacity: 0, y: 25 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{
+                      duration: 0.35,
+                      delay: index * 0.05,
+                    }}
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
           ) : (
             <div className="text-center py-16 bg-white rounded-2xl">
               <ShoppingBag size={45} className="text-[#1d5638] mx-auto mb-4" />
