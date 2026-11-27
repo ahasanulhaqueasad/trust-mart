@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
-import "./index.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import "./index.css";
 
 import MainLayout from "./layouts/MainLayout";
 
@@ -15,7 +15,17 @@ import SourceInformation from "./pages/SourceInformation";
 import QualityAssurance from "./pages/QualityAssurance";
 import CarefulPackaging from "./pages/CarefulPackaging";
 
+import CartProvider from "./context/CartProvider";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+
+// Admin Components
+import AdminLogin from "./admin/AdminLogin";
+import AdminRoute from "./admin/AdminRoute";
+import AdminDashboard from "./admin/AdminDashboard";
+
 const router = createBrowserRouter([
+  // Customer Website
   {
     path: "/",
     element: <MainLayout />,
@@ -24,9 +34,38 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutUs /> },
       { path: "products", element: <Products /> },
       { path: "contact", element: <DirectContact /> },
-      { path: "source-information", element: <SourceInformation /> },
-      { path: "quality-assurance", element: <QualityAssurance /> },
-      { path: "careful-packaging", element: <CarefulPackaging /> },
+      {
+        path: "source-information",
+        element: <SourceInformation />,
+      },
+      {
+        path: "quality-assurance",
+        element: <QualityAssurance />,
+      },
+      {
+        path: "careful-packaging",
+        element: <CarefulPackaging />,
+      },
+      { path: "cart", element: <Cart /> },
+      { path: "checkout", element: <Checkout /> },
+    ],
+  },
+
+  // Admin Login
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
+  },
+
+  // Protected Admin Dashboard
+  {
+    path: "/admin",
+    element: <AdminRoute />,
+    children: [
+      {
+        index: true,
+        element: <AdminDashboard />,
+      },
     ],
   },
 ]);
@@ -34,7 +73,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </HelmetProvider>
   </StrictMode>,
 );

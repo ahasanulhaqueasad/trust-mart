@@ -14,14 +14,20 @@ const ContactCTA = () => {
           className="relative overflow-hidden bg-white rounded-[32px] shadow-xl border border-gray-100"
         >
           {/* Decorative Background */}
-          <div className="absolute -top-24 -right-20 w-72 h-72 bg-[#efc66f]/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -left-20 w-72 h-72 bg-[#1d5638]/10 rounded-full blur-3xl" />
+          <div
+            className="absolute -top-24 -right-20 w-72 h-72 bg-[#efc66f]/20 rounded-full blur-3xl"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute -bottom-24 -left-20 w-72 h-72 bg-[#1d5638]/10 rounded-full blur-3xl"
+            aria-hidden="true"
+          />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 p-7 md:p-12 lg:p-16">
             {/* Content */}
             <div>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#1d5638] bg-[#1d5638]/10 px-4 py-2 rounded-full mb-6">
-                <Headset size={17} />
+                <Headset size={17} aria-hidden="true" />
                 আমরা আছি আপনার পাশে
               </span>
 
@@ -43,9 +49,10 @@ const ContactCTA = () => {
                   href="https://wa.me/8801838041204"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Trust Mart-এর সঙ্গে WhatsApp-এ যোগাযোগ করুন"
                   className="inline-flex items-center gap-2 bg-[#173f2b] hover:bg-[#1d5638] text-white px-7 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg"
                 >
-                  <MessageCircle size={19} />
+                  <MessageCircle size={19} aria-hidden="true" />
                   WhatsApp-এ যোগাযোগ
                 </a>
 
@@ -54,7 +61,7 @@ const ContactCTA = () => {
                   className="inline-flex items-center gap-2 border-2 border-[#173f2b] text-[#173f2b] hover:bg-[#173f2b] hover:text-white px-7 py-4 rounded-full font-semibold transition-all duration-300"
                 >
                   বিস্তারিত জানুন
-                  <ArrowRight size={18} />
+                  <ArrowRight size={18} aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -67,7 +74,10 @@ const ContactCTA = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="bg-[#173f2b] rounded-3xl p-8 md:p-10 text-white"
             >
-              <div className="w-16 h-16 rounded-2xl bg-[#efc66f] flex items-center justify-center mb-7">
+              <div
+                className="w-16 h-16 rounded-2xl bg-[#efc66f] flex items-center justify-center mb-7"
+                aria-hidden="true"
+              >
                 <Phone size={30} className="text-[#173f2b]" />
               </div>
 
@@ -86,9 +96,10 @@ const ContactCTA = () => {
 
               <a
                 href="tel:+8801838041204"
+                aria-label="01838041204 নম্বরে ফোন করুন"
                 className="flex items-center gap-3 text-xl md:text-2xl font-bold text-[#efc66f] hover:text-white transition-colors"
               >
-                <Phone size={22} />
+                <Phone size={22} aria-hidden="true" />
                 01838041204
               </a>
 

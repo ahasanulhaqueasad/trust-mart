@@ -12,7 +12,10 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section
+      className="py-20 lg:py-28 bg-white"
+      aria-labelledby="about-section-title"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Image Section */}
@@ -23,13 +26,20 @@ const About = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="absolute -top-5 -left-5 w-32 h-32 bg-[#efc66f]/20 rounded-full blur-2xl" />
+            <div
+              className="absolute -top-5 -left-5 w-32 h-32 bg-[#efc66f]/20 rounded-full blur-2xl"
+              aria-hidden="true"
+            />
 
             <img
               src="/images/packaging.png"
-              alt="ট্রাস্ট মার্টের পণ্য প্যাকেজিং"
+              alt="Trust Mart-এর পণ্য যত্নসহকারে প্যাকেজিং করার দৃশ্য"
+              title="Trust Mart-এর যত্নশীল প্যাকেজিং"
+              width="600"
+              height="470"
               className="relative w-full h-[350px] md:h-[470px] object-cover rounded-3xl shadow-xl"
               loading="lazy"
+              decoding="async"
             />
 
             <div className="absolute -bottom-6 -right-3 md:-right-6 bg-[#173f2b] text-white p-5 md:p-7 rounded-2xl shadow-xl">
@@ -63,22 +73,26 @@ const About = () => {
             </p>
 
             {/* Commitments */}
-            <div className="space-y-4 mb-9">
+            <ul className="space-y-4 mb-9">
               {commitments.map((item, index) => (
-                <motion.div
-                  key={index}
+                <motion.li
+                  key={item}
                   initial={{ opacity: 0, x: 15 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex items-center gap-3"
                 >
-                  <CheckCircle2 size={21} className="text-[#1d5638] shrink-0" />
+                  <CheckCircle2
+                    size={21}
+                    className="text-[#1d5638] shrink-0"
+                    aria-hidden="true"
+                  />
 
                   <span className="text-gray-700 font-medium">{item}</span>
-                </motion.div>
+                </motion.li>
               ))}
-            </div>
+            </ul>
 
             {/* Button */}
             <Link
@@ -86,7 +100,7 @@ const About = () => {
               className="inline-flex items-center gap-2 bg-[#173f2b] hover:bg-[#1d5638] text-white px-7 py-3.5 rounded-full font-semibold transition-all duration-300"
             >
               আরও জানুন
-              <ArrowRight size={18} />
+              <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </motion.div>
         </div>

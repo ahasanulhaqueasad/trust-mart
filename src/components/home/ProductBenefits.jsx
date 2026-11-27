@@ -102,11 +102,13 @@ const ProductBenefits = () => {
   ];
 
   const isHoney = activeTab === "honey";
-
   const benefits = isHoney ? honeyBenefits : gheeBenefits;
 
   return (
-    <section className="py-20 lg:py-28 bg-[#f5f6ef]">
+    <section
+      className="py-20 lg:py-28 bg-[#f5f6ef]"
+      aria-label="মধু, কালোজিরা ও ঘি সম্পর্কে তথ্য"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Heading */}
         <motion.div
@@ -131,18 +133,26 @@ const ProductBenefits = () => {
         </motion.div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div
+          className="flex flex-wrap justify-center gap-3 mb-10"
+          role="group"
+          aria-label="পণ্যের বিভাগ নির্বাচন করুন"
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              type="button"
               onClick={() => setActiveTab(tab.id)}
+              aria-pressed={activeTab === tab.id}
               className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeTab === tab.id
                   ? "bg-[#173f2b] text-white shadow-lg"
                   : "bg-white text-gray-600 hover:bg-[#efc66f] hover:text-[#173f2b]"
               }`}
             >
-              <span className="text-xl">{tab.icon}</span>
+              <span className="text-xl" aria-hidden="true">
+                {tab.icon}
+              </span>
               {tab.label}
             </button>
           ))}
@@ -161,10 +171,16 @@ const ProductBenefits = () => {
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#e7e9e3]">
               {/* Content Header */}
               <div className="bg-[#173f2b] px-6 py-10 md:px-12 md:py-12 text-center relative overflow-hidden">
-                <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#efc66f]/10 rounded-full blur-3xl" />
+                <div
+                  className="absolute -top-20 -right-20 w-64 h-64 bg-[#efc66f]/10 rounded-full blur-3xl"
+                  aria-hidden="true"
+                />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-[#efc66f] flex items-center justify-center mx-auto mb-5 text-3xl">
+                  <div
+                    className="w-16 h-16 rounded-2xl bg-[#efc66f] flex items-center justify-center mx-auto mb-5 text-3xl"
+                    aria-hidden="true"
+                  >
                     {isHoney ? "🍯" : "🧈"}
                   </div>
 
@@ -186,7 +202,11 @@ const ProductBenefits = () => {
                 {/* Religious Reference */}
                 <div className="bg-[#f5f6ef] rounded-2xl p-6 md:p-9 border-l-4 border-[#efc66f]">
                   <div className="flex items-center gap-3 mb-6">
-                    <BookOpen size={25} className="text-[#173f2b]" />
+                    <BookOpen
+                      size={25}
+                      className="text-[#173f2b]"
+                      aria-hidden="true"
+                    />
 
                     <h4 className="text-xl font-bold text-[#173f2b]">
                       {isHoney
@@ -254,6 +274,7 @@ const ProductBenefits = () => {
                         <div className="bg-white rounded-xl p-5 text-center">
                           <p
                             dir="rtl"
+                            lang="ar"
                             className="text-2xl md:text-3xl leading-[2.2] text-[#173f2b] font-semibold"
                           >
                             فِي الْحَبَّةِ السَّوْدَاءِ شِفَاءٌ مِنْ كُلِّ دَاءٍ
@@ -283,6 +304,7 @@ const ProductBenefits = () => {
                       <div className="bg-white rounded-xl p-5 mb-5">
                         <p
                           dir="rtl"
+                          lang="ar"
                           className="text-2xl md:text-3xl text-[#173f2b] leading-[2.2] text-center"
                         >
                           وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً ۖ
@@ -343,7 +365,10 @@ const ProductBenefits = () => {
                           }}
                           className="flex gap-4 p-5 rounded-2xl bg-[#f5f6ef] hover:bg-[#efc66f]/15 transition-colors"
                         >
-                          <div className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center">
+                          <div
+                            className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center"
+                            aria-hidden="true"
+                          >
                             <Icon size={23} className="text-[#efc66f]" />
                           </div>
 
@@ -409,7 +434,11 @@ const ProductBenefits = () => {
 
                 {/* Disclaimer */}
                 <div className="mt-10 flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl p-5">
-                  <Info size={22} className="text-amber-600 shrink-0 mt-1" />
+                  <Info
+                    size={22}
+                    className="text-amber-600 shrink-0 mt-1"
+                    aria-hidden="true"
+                  />
 
                   <p className="text-sm text-gray-700 leading-7">
                     <strong>বিশেষ সতর্কতা:</strong>{" "}

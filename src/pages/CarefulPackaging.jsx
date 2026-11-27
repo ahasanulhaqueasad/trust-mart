@@ -50,7 +50,10 @@ const CarefulPackaging = () => {
       <main>
         {/* Page Banner */}
         <section className="relative bg-[#173f2b] py-20 md:py-28 overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#efc66f]/10 rounded-full blur-3xl" />
+          <div
+            className="absolute -top-20 -right-20 w-72 h-72 bg-[#efc66f]/10 rounded-full blur-3xl"
+            aria-hidden="true"
+          />
 
           <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
             <motion.div
@@ -58,7 +61,11 @@ const CarefulPackaging = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <PackageCheck size={42} className="text-[#efc66f] mx-auto mb-5" />
+              <PackageCheck
+                size={42}
+                className="text-[#efc66f] mx-auto mb-5"
+                aria-hidden="true"
+              />
 
               <h1 className="text-4xl md:text-5xl font-bold text-white">
                 যত্নশীল প্যাকেজিং
@@ -73,7 +80,10 @@ const CarefulPackaging = () => {
         </section>
 
         {/* Introduction */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section
+          className="py-20 lg:py-28 bg-white"
+          aria-label="প্যাকেজিং সম্পর্কে বিস্তারিত"
+        >
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
               <motion.div
@@ -84,8 +94,10 @@ const CarefulPackaging = () => {
               >
                 <img
                   src="/images/packaging.png"
-                  alt="ট্রাস্ট মার্টের পণ্য প্যাকেজিং"
+                  alt="Trust Mart-এর পণ্য প্যাকেজিং"
+                  title="Trust Mart - যত্নশীল প্যাকেজিং"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-[350px] md:h-[460px] object-cover rounded-3xl shadow-xl"
                 />
               </motion.div>
@@ -114,7 +126,7 @@ const CarefulPackaging = () => {
                   className="inline-flex items-center gap-2 mt-8 bg-[#173f2b] hover:bg-[#1d5638] text-white px-7 py-3.5 rounded-full font-semibold transition-colors"
                 >
                   যোগাযোগ করুন
-                  <ArrowRight size={18} />
+                  <ArrowRight size={18} aria-hidden="true" />
                 </Link>
               </motion.div>
             </div>
@@ -144,7 +156,10 @@ const CarefulPackaging = () => {
                     whileHover={{ y: -7 }}
                     className="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-[#173f2b] flex items-center justify-center mb-6">
+                    <div
+                      className="w-14 h-14 rounded-xl bg-[#173f2b] flex items-center justify-center mb-6"
+                      aria-hidden="true"
+                    >
                       <Icon size={27} className="text-[#efc66f]" />
                     </div>
 
@@ -180,7 +195,7 @@ const CarefulPackaging = () => {
                 className="inline-flex items-center gap-2 mt-8 bg-[#efc66f] hover:bg-white text-[#173f2b] px-8 py-4 rounded-full font-bold transition-colors"
               >
                 যোগাযোগ করুন
-                <ArrowRight size={18} />
+                <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>
           </div>

@@ -18,6 +18,7 @@ const DirectContact = () => {
       value: "01838041204",
       link: "tel:+8801838041204",
       button: "কল করুন",
+      ariaLabel: "Trust Mart-এ ফোন করুন",
     },
     {
       icon: MessageCircle,
@@ -26,6 +27,7 @@ const DirectContact = () => {
       value: "01838041204",
       link: "https://wa.me/8801838041204",
       button: "মেসেজ পাঠান",
+      ariaLabel: "Trust Mart-কে WhatsApp-এ মেসেজ পাঠান",
     },
   ];
 
@@ -40,7 +42,10 @@ const DirectContact = () => {
       <main>
         {/* Page Banner */}
         <section className="relative bg-[#173f2b] py-20 md:py-28 overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#efc66f]/10 rounded-full blur-3xl" />
+          <div
+            className="absolute -top-20 -right-20 w-72 h-72 bg-[#efc66f]/10 rounded-full blur-3xl"
+            aria-hidden="true"
+          />
 
           <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
             <motion.div
@@ -51,6 +56,7 @@ const DirectContact = () => {
               <MessageCircle
                 size={42}
                 className="text-[#efc66f] mx-auto mb-5"
+                aria-hidden="true"
               />
 
               <h1 className="text-4xl md:text-5xl font-bold text-white">
@@ -66,7 +72,10 @@ const DirectContact = () => {
         </section>
 
         {/* Contact Methods */}
-        <section className="py-20 lg:py-28 bg-[#f5f6ef]">
+        <section
+          className="py-20 lg:py-28 bg-[#f5f6ef]"
+          aria-label="যোগাযোগের মাধ্যম"
+        >
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-[#173f2b]">
@@ -82,6 +91,7 @@ const DirectContact = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {contactMethods.map((method, index) => {
                 const Icon = method.icon;
+                const isExternal = method.link.startsWith("https");
 
                 return (
                   <motion.div
@@ -93,7 +103,10 @@ const DirectContact = () => {
                     whileHover={{ y: -7 }}
                     className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100"
                   >
-                    <div className="w-16 h-16 bg-[#173f2b] rounded-2xl flex items-center justify-center mb-7">
+                    <div
+                      className="w-16 h-16 bg-[#173f2b] rounded-2xl flex items-center justify-center mb-7"
+                      aria-hidden="true"
+                    >
                       <Icon size={30} className="text-[#efc66f]" />
                     </div>
 
@@ -111,18 +124,13 @@ const DirectContact = () => {
 
                     <a
                       href={method.link}
-                      target={
-                        method.link.startsWith("https") ? "_blank" : undefined
-                      }
-                      rel={
-                        method.link.startsWith("https")
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      aria-label={method.ariaLabel}
                       className="inline-flex items-center justify-center gap-2 w-full bg-[#173f2b] hover:bg-[#1d5638] text-white py-3.5 rounded-xl font-semibold transition-colors"
                     >
                       {method.button}
-                      <ArrowUpRight size={18} />
+                      <ArrowUpRight size={18} aria-hidden="true" />
                     </a>
                   </motion.div>
                 );
@@ -132,11 +140,17 @@ const DirectContact = () => {
         </section>
 
         {/* Additional Information */}
-        <section className="py-16 bg-white">
+        <section
+          className="py-16 bg-white"
+          aria-label="যোগাযোগের অতিরিক্ত তথ্য"
+        >
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="flex items-start gap-4 bg-[#f5f6ef] p-7 rounded-2xl">
-                <div className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center">
+                <div
+                  className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center"
+                  aria-hidden="true"
+                >
                   <MapPin size={23} className="text-[#efc66f]" />
                 </div>
 
@@ -150,7 +164,10 @@ const DirectContact = () => {
               </div>
 
               <div className="flex items-start gap-4 bg-[#f5f6ef] p-7 rounded-2xl">
-                <div className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center">
+                <div
+                  className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center"
+                  aria-hidden="true"
+                >
                   <Clock size={23} className="text-[#efc66f]" />
                 </div>
 

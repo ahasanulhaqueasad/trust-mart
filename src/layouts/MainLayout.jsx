@@ -13,7 +13,7 @@ const MainLayout = () => {
 
       <Header />
 
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         <Outlet />
       </main>
 

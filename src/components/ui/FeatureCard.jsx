@@ -11,7 +11,10 @@ const FeatureCard = ({ feature }) => {
       className="group bg-white p-7 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300"
     >
       {/* Icon */}
-      <div className="w-16 h-16 rounded-2xl bg-[#1d5638]/10 flex items-center justify-center mb-6 group-hover:bg-[#173f2b] transition-colors duration-300">
+      <div
+        className="w-16 h-16 rounded-2xl bg-[#1d5638]/10 flex items-center justify-center mb-6 group-hover:bg-[#173f2b] transition-colors duration-300"
+        aria-hidden="true"
+      >
         {Icon && (
           <Icon
             size={30}
@@ -25,8 +28,8 @@ const FeatureCard = ({ feature }) => {
 
       <p className="text-gray-600 text-sm leading-7">{description}</p>
 
-      {/* Bottom Icon */}
-      <div className="mt-6 flex justify-end">
+      {/* Decorative Bottom Icon */}
+      <div className="mt-6 flex justify-end" aria-hidden="true">
         <ArrowUpRight
           size={22}
           className="text-[#1d5638] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"

@@ -29,12 +29,20 @@ const SEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
+      <meta
+        property="og:image:alt"
+        content="Trust Mart - বিশ্বস্ত অনলাইন শপিং"
+      />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+      <meta
+        name="twitter:image:alt"
+        content="Trust Mart - বিশ্বস্ত অনলাইন শপিং"
+      />
     </Helmet>
   );
 };

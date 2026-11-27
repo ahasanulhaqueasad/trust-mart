@@ -26,7 +26,10 @@ const CarefulPackaging = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#f5f6ef]">
+    <section
+      className="py-20 lg:py-28 bg-[#f5f6ef]"
+      aria-labelledby="packaging-section-title"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Content Section */}
@@ -43,13 +46,16 @@ const CarefulPackaging = () => {
               center={false}
             />
 
-            <div className="space-y-6 mt-8">
-              {packagingFeatures.map((feature, index) => {
+            <ul className="space-y-6 mt-8">
+              {packagingFeatures.map((feature) => {
                 const Icon = feature.icon;
 
                 return (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center">
+                  <li key={feature.title} className="flex items-start gap-4">
+                    <div
+                      className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center"
+                      aria-hidden="true"
+                    >
                       <Icon size={23} className="text-[#efc66f]" />
                     </div>
 
@@ -62,17 +68,17 @@ const CarefulPackaging = () => {
                         {feature.description}
                       </p>
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
 
             <Link
               to="/careful-packaging"
               className="inline-flex items-center gap-2 mt-9 bg-[#173f2b] hover:bg-[#1d5638] text-white px-7 py-3.5 rounded-full font-semibold transition-all duration-300"
             >
               বিস্তারিত জানুন
-              <ArrowRight size={18} />
+              <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </motion.div>
 
@@ -84,12 +90,19 @@ const CarefulPackaging = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="absolute -top-5 -right-5 w-32 h-32 bg-[#efc66f]/30 rounded-full blur-2xl" />
+            <div
+              className="absolute -top-5 -right-5 w-32 h-32 bg-[#efc66f]/30 rounded-full blur-2xl"
+              aria-hidden="true"
+            />
 
             <img
               src="/images/packaging.png"
-              alt="ট্রাস্ট মার্টের পণ্য প্যাকেজিং"
+              alt="Trust Mart-এর পণ্য যত্নসহকারে প্যাকেজিং করার দৃশ্য"
+              title="Trust Mart-এর যত্নশীল প্যাকেজিং"
+              width="600"
+              height="480"
               loading="lazy"
+              decoding="async"
               className="relative w-full h-[350px] md:h-[480px] object-cover rounded-3xl shadow-xl"
             />
 

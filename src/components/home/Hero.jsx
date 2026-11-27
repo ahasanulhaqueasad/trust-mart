@@ -84,7 +84,13 @@ const Hero = () => {
 
               <img
                 src="/images/hero-bg.png"
-                alt="ট্রাস্ট মার্টের পণ্য"
+                alt="Trust Mart-এর মানসম্মত পণ্য ও অনলাইন শপিং"
+                title="Trust Mart - বিশ্বস্ত অনলাইন শপিং"
+                width="600"
+                height="450"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="relative z-10 w-full h-[350px] sm:h-[450px] object-cover rounded-[35px] shadow-2xl"
               />
             </div>

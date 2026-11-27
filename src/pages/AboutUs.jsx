@@ -19,6 +19,27 @@ const AboutUs = () => {
     "গ্রাহকের সঙ্গে সরাসরি যোগাযোগের সুযোগ রাখা",
   ];
 
+  const values = [
+    {
+      icon: Target,
+      title: "আমাদের লক্ষ্য",
+      description:
+        "গ্রাহকদের প্রয়োজনীয় পণ্য কেনাকাটায় সহজ ও স্বাচ্ছন্দ্যময় অভিজ্ঞতা দিতে কাজ করা।",
+    },
+    {
+      icon: HeartHandshake,
+      title: "আমাদের অঙ্গীকার",
+      description:
+        "গ্রাহকের প্রয়োজন, প্রশ্ন ও মতামতকে গুরুত্ব দিয়ে দায়িত্বশীলভাবে সেবা দেওয়া।",
+    },
+    {
+      icon: ShieldCheck,
+      title: "আমাদের মূল্যবোধ",
+      description:
+        "পণ্যের তথ্য, যোগাযোগ এবং প্যাকেজিংয়ে স্বচ্ছতা ও যত্নকে গুরুত্ব দেওয়া।",
+    },
+  ];
+
   return (
     <>
       <SEO
@@ -30,7 +51,10 @@ const AboutUs = () => {
       <main>
         {/* Page Banner */}
         <section className="relative bg-[#173f2b] py-20 md:py-28 overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#efc66f]/10 rounded-full blur-3xl" />
+          <div
+            className="absolute -top-20 -right-20 w-72 h-72 bg-[#efc66f]/10 rounded-full blur-3xl"
+            aria-hidden="true"
+          />
 
           <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
             <motion.div
@@ -55,7 +79,10 @@ const AboutUs = () => {
         </section>
 
         {/* About Content */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section
+          className="py-20 lg:py-28 bg-white"
+          aria-label="Trust Mart সম্পর্কে বিস্তারিত"
+        >
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
               <motion.div
@@ -66,8 +93,10 @@ const AboutUs = () => {
               >
                 <img
                   src="/images/hero-bg.png"
-                  alt="ট্রাস্ট মার্ট"
+                  alt="Trust Mart-এর অনলাইন শপিং ও পণ্যের পরিচিতি"
+                  title="Trust Mart - বিশ্বস্ত অনলাইন শপিং"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-[350px] md:h-[470px] object-cover rounded-3xl shadow-xl"
                 />
               </motion.div>
@@ -101,7 +130,7 @@ const AboutUs = () => {
                   className="inline-flex items-center gap-2 mt-8 bg-[#173f2b] hover:bg-[#1d5638] text-white px-7 py-3.5 rounded-full font-semibold transition-colors"
                 >
                   আমাদের পণ্য দেখুন
-                  <ArrowRight size={18} />
+                  <ArrowRight size={18} aria-hidden="true" />
                 </Link>
               </motion.div>
             </div>
@@ -118,59 +147,32 @@ const AboutUs = () => {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-              <motion.div
-                whileHover={{ y: -7 }}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
-              >
-                <div className="w-14 h-14 bg-[#173f2b] rounded-xl flex items-center justify-center mb-6">
-                  <Target size={27} className="text-[#efc66f]" />
-                </div>
+              {values.map((value) => {
+                const Icon = value.icon;
 
-                <h3 className="text-xl font-bold text-[#173f2b] mb-3">
-                  আমাদের লক্ষ্য
-                </h3>
+                return (
+                  <motion.div
+                    key={value.title}
+                    whileHover={{ y: -7 }}
+                    className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
+                  >
+                    <div
+                      className="w-14 h-14 bg-[#173f2b] rounded-xl flex items-center justify-center mb-6"
+                      aria-hidden="true"
+                    >
+                      <Icon size={27} className="text-[#efc66f]" />
+                    </div>
 
-                <p className="text-gray-600 leading-7 text-sm">
-                  গ্রাহকদের প্রয়োজনীয় পণ্য কেনাকাটায় সহজ ও স্বাচ্ছন্দ্যময়
-                  অভিজ্ঞতা দিতে কাজ করা।
-                </p>
-              </motion.div>
+                    <h3 className="text-xl font-bold text-[#173f2b] mb-3">
+                      {value.title}
+                    </h3>
 
-              <motion.div
-                whileHover={{ y: -7 }}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
-              >
-                <div className="w-14 h-14 bg-[#173f2b] rounded-xl flex items-center justify-center mb-6">
-                  <HeartHandshake size={27} className="text-[#efc66f]" />
-                </div>
-
-                <h3 className="text-xl font-bold text-[#173f2b] mb-3">
-                  আমাদের অঙ্গীকার
-                </h3>
-
-                <p className="text-gray-600 leading-7 text-sm">
-                  গ্রাহকের প্রয়োজন, প্রশ্ন ও মতামতকে গুরুত্ব দিয়ে দায়িত্বশীলভাবে
-                  সেবা দেওয়া।
-                </p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -7 }}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
-              >
-                <div className="w-14 h-14 bg-[#173f2b] rounded-xl flex items-center justify-center mb-6">
-                  <ShieldCheck size={27} className="text-[#efc66f]" />
-                </div>
-
-                <h3 className="text-xl font-bold text-[#173f2b] mb-3">
-                  আমাদের মূল্যবোধ
-                </h3>
-
-                <p className="text-gray-600 leading-7 text-sm">
-                  পণ্যের তথ্য, যোগাযোগ এবং প্যাকেজিংয়ে স্বচ্ছতা ও যত্নকে গুরুত্ব
-                  দেওয়া।
-                </p>
-              </motion.div>
+                    <p className="text-gray-600 leading-7 text-sm">
+                      {value.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -185,10 +187,10 @@ const AboutUs = () => {
                 description="প্রতিটি গ্রাহকের সঙ্গে ভালো সম্পর্ক গড়ে তুলতে আমরা যেসব বিষয় অনুসরণ করার চেষ্টা করি।"
               />
 
-              <div className="bg-[#f5f6ef] rounded-3xl p-7 md:p-10 text-left space-y-5">
+              <ul className="bg-[#f5f6ef] rounded-3xl p-7 md:p-10 text-left space-y-5">
                 {commitments.map((item, index) => (
-                  <motion.div
-                    key={index}
+                  <motion.li
+                    key={item}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -198,12 +200,13 @@ const AboutUs = () => {
                     <CheckCircle2
                       size={22}
                       className="text-[#1d5638] shrink-0"
+                      aria-hidden="true"
                     />
 
                     <span className="text-gray-700 font-medium">{item}</span>
-                  </motion.div>
+                  </motion.li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </section>

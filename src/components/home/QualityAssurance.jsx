@@ -31,7 +31,10 @@ const QualityAssurance = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section
+      className="py-20 lg:py-28 bg-white"
+      aria-label="Trust Mart-এর গুণগত মান ও নিশ্চয়তা"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Image Section */}
@@ -42,18 +45,27 @@ const QualityAssurance = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="absolute -top-5 -left-5 w-32 h-32 bg-[#efc66f]/30 rounded-full blur-2xl" />
+            <div
+              className="absolute -top-5 -left-5 w-32 h-32 bg-[#efc66f]/30 rounded-full blur-2xl"
+              aria-hidden="true"
+            />
 
             <img
               src="/images/ghee.png"
-              alt="পণ্যের মান ও পরিচিতি"
+              alt="Trust Mart-এর দেশি ঘি"
+              title="Trust Mart-এর পণ্যের গুণগত মান"
               loading="lazy"
+              decoding="async"
               className="relative w-full h-[350px] md:h-[480px] object-cover rounded-3xl shadow-xl"
             />
 
             <div className="absolute bottom-6 left-6 right-6 bg-[#173f2b]/95 text-white p-6 rounded-2xl">
               <div className="flex items-center gap-3">
-                <ShieldCheck size={30} className="text-[#efc66f]" />
+                <ShieldCheck
+                  size={30}
+                  className="text-[#efc66f]"
+                  aria-hidden="true"
+                />
 
                 <div>
                   <h3 className="font-bold text-lg">মানের প্রতি যত্ন</h3>
@@ -81,12 +93,15 @@ const QualityAssurance = () => {
             />
 
             <div className="space-y-6 mt-8">
-              {qualityPoints.map((point, index) => {
+              {qualityPoints.map((point) => {
                 const Icon = point.icon;
 
                 return (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="w-12 h-12 shrink-0 rounded-xl bg-[#1d5638]/10 flex items-center justify-center">
+                  <div key={point.title} className="flex items-start gap-4">
+                    <div
+                      className="w-12 h-12 shrink-0 rounded-xl bg-[#1d5638]/10 flex items-center justify-center"
+                      aria-hidden="true"
+                    >
                       <Icon size={23} className="text-[#1d5638]" />
                     </div>
 
@@ -109,7 +124,7 @@ const QualityAssurance = () => {
               className="inline-flex items-center gap-2 mt-9 bg-[#173f2b] hover:bg-[#1d5638] text-white px-7 py-3.5 rounded-full font-semibold transition-all duration-300"
             >
               আরও জানুন
-              <ArrowRight size={18} />
+              <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </motion.div>
         </div>

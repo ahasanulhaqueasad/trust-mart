@@ -7,7 +7,10 @@ import products from "../../data/products";
 
 const FeaturedProducts = () => {
   return (
-    <section className="py-20 lg:py-28 bg-[#f5f6ef]">
+    <section
+      className="py-20 lg:py-28 bg-[#f5f6ef]"
+      aria-label="Trust Mart-এর নির্বাচিত পণ্যসমূহ"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Heading */}
         <SectionTitle
@@ -38,7 +41,7 @@ const FeaturedProducts = () => {
             className="inline-flex items-center gap-2 bg-[#173f2b] hover:bg-[#1d5638] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
           >
             সব পণ্য দেখুন
-            <ArrowRight size={19} />
+            <ArrowRight size={19} aria-hidden="true" />
           </Link>
         </div>
       </div>

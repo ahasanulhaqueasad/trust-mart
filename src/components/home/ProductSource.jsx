@@ -26,7 +26,10 @@ const ProductSource = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#f5f6ef]">
+    <section
+      className="py-20 lg:py-28 bg-[#f5f6ef]"
+      aria-label="পণ্যের উৎস ও পরিচিতি"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Content */}
@@ -44,12 +47,15 @@ const ProductSource = () => {
             />
 
             <div className="space-y-6 mt-8">
-              {sourceFeatures.map((item, index) => {
+              {sourceFeatures.map((item) => {
                 const Icon = item.icon;
 
                 return (
-                  <div key={index} className="flex gap-4">
-                    <div className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center">
+                  <div key={item.title} className="flex gap-4">
+                    <div
+                      className="w-12 h-12 shrink-0 rounded-xl bg-[#173f2b] flex items-center justify-center"
+                      aria-hidden="true"
+                    >
                       <Icon size={23} className="text-[#efc66f]" />
                     </div>
 
@@ -72,7 +78,7 @@ const ProductSource = () => {
               className="inline-flex items-center gap-2 mt-9 bg-[#173f2b] hover:bg-[#1d5638] text-white px-7 py-3.5 rounded-full font-semibold transition-all duration-300"
             >
               বিস্তারিত জানুন
-              <ArrowRight size={18} />
+              <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </motion.div>
 
@@ -84,12 +90,17 @@ const ProductSource = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="absolute -top-5 -right-5 w-32 h-32 bg-[#efc66f]/30 rounded-full blur-2xl" />
+            <div
+              className="absolute -top-5 -right-5 w-32 h-32 bg-[#efc66f]/30 rounded-full blur-2xl"
+              aria-hidden="true"
+            />
 
             <img
               src="/images/honey.png"
-              alt="পণ্যের উৎস ও পরিচিতি"
+              alt="Trust Mart-এর মধু পণ্য"
+              title="Trust Mart-এর পণ্যের উৎস ও পরিচিতি"
               loading="lazy"
+              decoding="async"
               className="relative w-full h-[350px] md:h-[480px] object-cover rounded-3xl shadow-xl"
             />
 

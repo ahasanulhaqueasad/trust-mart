@@ -5,7 +5,10 @@ import features from "../../data/features";
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section
+      className="py-20 lg:py-28 bg-white"
+      aria-label="কেন Trust Mart বেছে নেবেন"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Heading */}
         <SectionTitle
