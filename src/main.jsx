@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -19,40 +20,21 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainLayout />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "about",
-        element: <AboutUs />,
-      },
-      {
-        path: "products",
-        element: <Products />,
-      },
-      {
-        path: "contact",
-        element: <DirectContact />,
-      },
-      {
-        path: "source-information",
-        element: <SourceInformation />,
-      },
-      {
-        path: "quality-assurance",
-        element: <QualityAssurance />,
-      },
-      {
-        path: "careful-packaging",
-        element: <CarefulPackaging />,
-      },
+      { index: true, element: <Home /> },
+      { path: "about", element: <AboutUs /> },
+      { path: "products", element: <Products /> },
+      { path: "contact", element: <DirectContact /> },
+      { path: "source-information", element: <SourceInformation /> },
+      { path: "quality-assurance", element: <QualityAssurance /> },
+      { path: "careful-packaging", element: <CarefulPackaging /> },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </StrictMode>,
 );

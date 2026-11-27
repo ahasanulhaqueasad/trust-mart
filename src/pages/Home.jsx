@@ -1,3 +1,5 @@
+import SEO from "../components/common/SEO";
+
 import Hero from "../components/home/Hero";
 import About from "../components/home/About";
 import FeaturedProducts from "../components/home/FeaturedProducts";
@@ -13,6 +15,12 @@ import ProductBenefits from "../components/home/ProductBenefits";
 const Home = () => {
   return (
     <>
+      <SEO
+        title="Trust Mart | বিশুদ্ধ মধু ও মানসম্মত পণ্যের বিশ্বস্ত ঠিকানা"
+        description="Trust Mart থেকে সংগ্রহ করুন মানসম্মত ও বিশ্বস্ত পণ্য। বিশুদ্ধ মধু, কালোজিরা এবং অন্যান্য পণ্যের নির্ভরযোগ্য অনলাইন শপিং ঠিকানা।"
+        path="/"
+      />
+
       <Hero />
       <ProductBenefits />
       <About />
