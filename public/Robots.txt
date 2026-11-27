@@ -2,6 +2,8 @@
 User-agent: *
 Allow: /
 
-Disallow: /admin/
-Disallow: /dashboard/
+Disallow: /admin
+Disallow: /cart
+Disallow: /checkout
+
 Sitemap: https://trust-mart-rho.vercel.app/sitemap.xml
